@@ -1,0 +1,139 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — Lynne Kitonyi Kyalo personal CV website.
+ * Earthy elegance: warm cream background, brown headings, forest green
+ * supporting elements, mustard highlights, oatmeal surfaces.
+ *
+ * Brand colours (converted to oklch from the supplied hex palette):
+ *   #6B422E -> oklch(0.422 0.065 46.5)  primary brown
+ *   #526747 -> oklch(0.487 0.056 135.1) forest green
+ *   #D5A52A -> oklch(0.747 0.141 85.5)  mustard yellow
+ *   #F6F0E5 -> oklch(0.957 0.016 82.8)  warm cream
+ *   #E8DDCA -> oklch(0.901 0.028 81.5)  oatmeal
+ *   #30251F -> oklch(0.275 0.02 50.1)   deep espresso
+ *   #A6B39A -> oklch(0.75 0.038 129.8)  soft sage
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brown: var(--brown);
+  --color-brown-deep: var(--brown-deep);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-mustard: var(--mustard);
+  --color-mustard-soft: var(--mustard-soft);
+  --color-cream: var(--cream);
+  --color-oatmeal: var(--oatmeal);
+  --color-espresso: var(--espresso);
+  --color-sage: var(--sage);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.957 0.016 82.8);
+  --foreground: oklch(0.275 0.02 50.1);
+  --card: oklch(0.977 0.011 82.8);
+  --card-foreground: oklch(0.275 0.02 50.1);
+  --popover: oklch(0.977 0.011 82.8);
+  --popover-foreground: oklch(0.275 0.02 50.1);
+  --primary: oklch(0.422 0.065 46.5);
+  --primary-foreground: oklch(0.96 0.015 82.8);
+  --secondary: oklch(0.901 0.028 81.5);
+  --secondary-foreground: oklch(0.36 0.05 46.5);
+  --muted: oklch(0.925 0.022 81.5);
+  --muted-foreground: oklch(0.49 0.03 55);
+  --accent: oklch(0.75 0.038 129.8);
+  --accent-foreground: oklch(0.275 0.02 50.1);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.874 0.03 80);
+  --input: oklch(0.874 0.03 80);
+  --ring: oklch(0.747 0.141 85.5);
+
+  --brown: oklch(0.422 0.065 46.5);
+  --brown-deep: oklch(0.34 0.06 46.5);
+  --forest: oklch(0.487 0.056 135.1);
+  --forest-deep: oklch(0.37 0.055 135.1);
+  --mustard: oklch(0.747 0.141 85.5);
+  --mustard-soft: oklch(0.89 0.08 85.5);
+  --cream: oklch(0.957 0.016 82.8);
+  --oatmeal: oklch(0.901 0.028 81.5);
+  --espresso: oklch(0.275 0.02 50.1);
+  --sage: oklch(0.75 0.038 129.8);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+@utility arch-frame {
+  border-radius: 999px 999px 1.25rem 1.25rem;
+}

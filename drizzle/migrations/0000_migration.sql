@@ -1,0 +1,19 @@
+CREATE TABLE public.contact_messages (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  subject TEXT NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+GRANT INSERT ON public.contact_messages TO anon;
+GRANT ALL ON public.contact_messages TO service_role;
+
+ALTER TABLE public.contact_messages ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Visitors can submit a contact message"
+  ON public.contact_messages
+  FOR INSERT
+  TO anon
+  WITH CHECK (true);
